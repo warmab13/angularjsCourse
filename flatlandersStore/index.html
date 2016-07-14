@@ -7,15 +7,25 @@
 </head>
 <body>
 	<div ng-controller="StoreController as store">
-	<!-- <div class="container" ng-repeat="product in store.products">
+	<!--  <div class="container" ng-repeat="product in store.products">
 		<h1>{{product.name}}</h1>
 		<h2>{{product.price}}</h2>
 		<p>{{product.description}}</p>
 		<button class="btn" ng-show="product.canPurchase">Add to Cart</button> 
 		<hr>
-	</div> -->
+	</div>  -->
+
+	<ul class="list-group">
+		<li class="list-group-item" ng-repeat="product in store.products">
+			<h3>
+			{{product.name}}
+				<em class="pull-right">{{product.price | currency}}</em>
+			</h3>
+			<img ng-src="product.images.full">
+		</li>
+	</ul> 
 		 
-		<div class="container">
+		<!-- <div class="container">
 			<div class="product row" ng-repeat="product in store.products">
 		      <h3>
 		        {{product.name}}
@@ -23,7 +33,7 @@
 		      </h3>
 		      <button ng-show="product.canPurchase">Add to Cart</button>
 		    </div>
-		</div>
+		</div> -->
 
 	</div>
 
