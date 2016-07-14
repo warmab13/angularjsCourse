@@ -2,7 +2,7 @@
 	var app = angular.module('gemStore', []);
 
 	app.controller('StoreController', function(){
-		this.products = gems;
+		this.product = gem1;
 	});
 
 	var gems = [
@@ -24,6 +24,9 @@
 
 	var gem1 = {
 		name: 'Azurite',
-		price: 2.95
-	}
+		price: 110.50,
+		canPurchase: false,
+		soldOut: true
+	};
+
 })();
