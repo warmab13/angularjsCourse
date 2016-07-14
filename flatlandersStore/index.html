@@ -31,7 +31,7 @@
 		        {{product.name}}
 		        <em class="pull-right">{{product.price | currency}}</em>
 		      </h3>
-		      <!--<button ng-show="product.canPurchase">Add to Cart</button>-->
+		      <!--<button ng-show="product.canPurchase">Add to Cart</button>
 		      <div class="gallery">
 		      <div class="img-wrap">
 		      	<img ng-src="{{product.images[0]}}" >
@@ -41,7 +41,14 @@
 		            <img ng-src="{{image}}" />
 		          </li>
 		        </ul>
-		      </div>
+		      </div>-->
+		      <!-- Image Gallery  -->
+		        <div class="gallery" ng-show="product.images.length">
+		          <img class="img img-circle img-thumbnail center-block" ng-src="{{product.images[0]}}" />
+		          <ul class="clearfix">
+		            <li class="small-image pull-left thumbnail" ng-repeat="image in product.images"> <img ng-src="{{image}}" /> </li>
+		          </ul>
+		        </div>
 		    </div>
 		</div> 
 
