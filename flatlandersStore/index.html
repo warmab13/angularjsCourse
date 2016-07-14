@@ -31,7 +31,10 @@
 		        {{product.name}}
 		        <em class="pull-right">{{product.price | currency}}</em>
 		      </h3>
-		      <button ng-show="product.canPurchase">Add to Cart</button>
+		      <!--<button ng-show="product.canPurchase">Add to Cart</button>-->
+		      <div class="gallery">
+		      	<img ng-src="{{product.images[0]}}" >
+		      </div>
 		    </div>
 		</div> 
 
