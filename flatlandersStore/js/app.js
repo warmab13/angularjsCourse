@@ -10,6 +10,7 @@
 		price: 2.95,
 		description: 'Lorem ipsum dolor sit amet',
 		canPurchase: true,
+		soldOut: true,
 	}
 
 	var gem1 = {
