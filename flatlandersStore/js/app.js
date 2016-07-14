@@ -2,7 +2,7 @@
 	var app = angular.module('gemStore', []);
 
 	app.controller('StoreController', function(){
-		this.product = gems2;
+		this.products = gems1;
 	});
 
 	var gems = [
@@ -36,6 +36,6 @@
     	{ name: 'Zircon', price: 3.95 }
 	];
 
-	var gems2 = { name: 'Azurite', price: 2.95 };
+	var gem2 = { name: 'Azurite', price: 2.95 };
 
 })();
