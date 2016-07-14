@@ -7,9 +7,18 @@
 </head>
 <body>
 	<div ng-controller="StoreController as store">
-		<h1>{{store.product.name}}</h1>
+		<!-- <h1>{{store.product.name}}</h1>
 		<h2>{{store.product.price}}</h2>
-		<p>{{store.product.description}}</p>
+		<p>{{store.product.description}}</p> -->
+		<div class="container">
+			<div class="product row">
+		      <h3>
+		        {{store.product.name}}
+		        <em class="pull-right">{{store.product.price}}</em>
+		      </h3>
+		    </div>
+		</div>
+		
 	</div>
 
 
