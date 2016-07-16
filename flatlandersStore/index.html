@@ -45,7 +45,34 @@
         </div>
         <div ng-show="tab.isSet(3)">
           <h4>Reviews</h4>
-          <blockquote></blockquote>
+          <blockquote ng-repeat="review in product.reviews">
+            <b>Stars: {{review.stars}}</b>
+            {{review.body}}
+            <cite>{{review.author}}</cite>
+          </blockquote>
+          <form name="reviewForm" class="form-group" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewCtrl.addReview(product)">
+           <blockquote>
+            <b>Stars: {{reviewCtrl.review.stars}}</b>
+            {{reviewCtrl.review.body}}
+            <cite>{{reviewCtrl.review.author}}</cite>
+          </blockquote>
+          <label for="">rating:</label>
+            <select class="form-control"  ng-model="reviewCtrl.review.stars" >
+              <option value="1">1 Star</option>
+              <option value="2">2 Star</option>
+              <option value="3">3 Star</option>
+              <option value="4">4 Star</option>
+              <option value="5">5 Star</option>
+            </select>
+            <br>
+            <label for="">body review:</label>
+            <textarea class="form-control" rows="5"  ng-model="reviewCtrl.review.body"></textarea>
+            <br>
+            <label>by:</label>
+            <input type="email" class="form-control" ng-model="reviewCtrl.review.author"/>
+            <br>
+            <input type="submit" value="Submit" class="btn btn-default"/>
+          </form>
         </div>
       </section>
     </div>
