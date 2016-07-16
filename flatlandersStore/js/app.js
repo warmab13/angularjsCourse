@@ -1,6 +1,22 @@
 (function(){
 	var app = angular.module('gemStore', []);
 
+	/*app.directive('productTitle', function(){
+		//dash in the directive in html product-title translate in camelCase in javascript
+		return{
+			restrict: 'E', //Here defines the type of the directive E is for Element
+			templateUrl: 'product-title.html'
+		};
+	});
+*/
+	app.directive('productTitle', function(){
+		//dash in the directive in html product-title translate in camelCase in javascript
+		return{
+			restrict: 'A', //Here defines the type of the directive A is for Attribute
+			templateUrl: 'product-title.html'
+		};
+	});
+
 	app.controller('StoreController', function(){
 		this.products = gems;
 	});
