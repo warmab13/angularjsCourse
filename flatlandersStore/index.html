@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Flatlanders Store</title>
 	<link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 	<body class="list-group" ng-controller="StoreController as store">
     <header>
@@ -48,16 +49,16 @@
           <blockquote ng-repeat="review in product.reviews">
             <b>Stars: {{review.stars}}</b>
             {{review.body}}
-            <cite>{{review.author}}</cite>
+            <cite>-{{review.author}} on {{review.createdOn | date}}</cite>
           </blockquote>
-          <form name="reviewForm" class="form-group" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewCtrl.addReview(product)">
+          <form name="reviewForm" class="form-group" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
            <blockquote>
             <b>Stars: {{reviewCtrl.review.stars}}</b>
             {{reviewCtrl.review.body}}
-            <cite>{{reviewCtrl.review.author}}</cite>
+            <cite>-{{reviewCtrl.review.author}}</cite>
           </blockquote>
           <label for="">rating:</label>
-            <select class="form-control"  ng-model="reviewCtrl.review.stars" >
+            <select class="form-control"  ng-model="reviewCtrl.review.stars" required>
               <option value="1">1 Star</option>
               <option value="2">2 Star</option>
               <option value="3">3 Star</option>
@@ -66,10 +67,11 @@
             </select>
             <br>
             <label for="">body review:</label>
-            <textarea class="form-control" rows="5"  ng-model="reviewCtrl.review.body"></textarea>
+            <textarea class="form-control" rows="5"  ng-model="reviewCtrl.review.body" required></textarea>
             <br>
             <label>by:</label>
-            <input type="email" class="form-control" ng-model="reviewCtrl.review.author"/>
+            <input type="email" class="form-control" ng-model="reviewCtrl.review.author" required />
+            <div> reviewForm is {{reviewForm.$valid}}</div>
             <br>
             <input type="submit" value="Submit" class="btn btn-default"/>
           </form>
