@@ -1,0 +1,48 @@
+<section>
+   <ul class="nav nav-pills">
+    <li ng-class="{active: panels.isSet(1)}">
+      <a href ng-click="panels.setTab(1)">Description</a></li>
+    <li ng-class="{active: panels.isSet(2)}">
+      <a href ng-click="panels.setTab(2)">Specs</a></li>
+    <li ng-class="{active: panels.isSet(3)}">
+      <a href ng-click="panels.setTab(3)">Reviews</a></li>
+  </ul>
+  <div class="panel" ng-show="panels.isSet(1)">
+    <h4>{{product.description}}</h4>
+  </div>
+  <div class="panel" ng-show="panels.isSet(2)">
+    <h4>Shine: {{product.shine}}</h4>
+  </div>
+  <div class="panel" ng-show="panels.isSet(3)">
+    <h4>Reviews</h4>
+    <blockquote ng-repeat="review in product.reviews">
+            <b>Stars: {{review.stars}}</b>
+            {{review.body}}
+            <cite>-{{review.author}} on {{review.createdOn | date}}</cite>
+          </blockquote>
+          <form name="reviewForm" class="form-group" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
+           <blockquote>
+            <b>Stars: {{reviewCtrl.review.stars}}</b>
+            {{reviewCtrl.review.body}}
+            <cite>-{{reviewCtrl.review.author}}</cite>
+          </blockquote>
+          <label for="">rating:</label>
+            <select class="form-control"  ng-model="reviewCtrl.review.stars" required>
+              <option value="1">1 Star</option>
+              <option value="2">2 Star</option>
+              <option value="3">3 Star</option>
+              <option value="4">4 Star</option>
+              <option value="5">5 Star</option>
+            </select>
+            <br>
+            <label for="">body review:</label>
+            <textarea class="form-control" rows="5"  ng-model="reviewCtrl.review.body" required></textarea>
+            <br>
+            <label>by:</label>
+            <input type="email" class="form-control" ng-model="reviewCtrl.review.author" required />
+            <div> reviewForm is {{reviewForm.$valid}}</div>
+            <br>
+            <input type="submit" value="Submit" class="btn btn-default"/>
+          </form>
+  </div>
+</section>
