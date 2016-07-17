@@ -1,21 +1,23 @@
 (function(){
 	var app = angular.module('gemStore', []);
-
-	/*app.directive('productTitle', function(){
+	
+	/*Directive for the title with elements*/
+	app.directive('productTitle', function(){
 		//dash in the directive in html product-title translate in camelCase in javascript
 		return{
 			restrict: 'E', //Here defines the type of the directive E is for Element
 			templateUrl: 'product-title.html'
 		};
 	});
-*/
-	app.directive('productTitle', function(){
+
+    /*Directive for the title with attributes*/
+	/*app.directive('productTitle', function(){
 		//dash in the directive in html product-title translate in camelCase in javascript
 		return{
 			restrict: 'A', //Here defines the type of the directive A is for Attribute
 			templateUrl: 'product-title.html'
 		};
-	});
+	});*/
 
 	app.directive('productPanels', function(){
 		return{
@@ -33,6 +35,20 @@
 			    };
 			},
 			controllerAs: 'panels'
+		};
+	});
+
+	app.directive('productGallery', function(){
+		return{
+			restrict: 'E',
+			templateUrl: 'product-gallery.html',
+			controller: function(){
+				this.current = 0;
+			    this.setCurrent = function(newGallery){
+			      this.current = newGallery || 0;
+			    };
+			},
+			controllerAs: 'gallery'
 		};
 	});
 
